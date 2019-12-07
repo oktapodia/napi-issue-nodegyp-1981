@@ -1,0 +1,21 @@
+{
+  "name": "testnodegyp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "npm run build:release && npm run build:debug",
+    "build:release": "node-gyp rebuild",
+    "build:debug": "node-gyp --debug configure rebuild"
+  },
+  "dependencies": {
+    "node-addon-api": "*"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0",
+    "node-gyp": "^6.0.1"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,11 @@
+os:
+  - osx
+language: node_js
+node_js:
+  - 10
+  - 12
+  - 13
+
+install:
+  - npm install
+  - npm run build

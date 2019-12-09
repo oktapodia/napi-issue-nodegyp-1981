@@ -1,11 +1,16 @@
 os:
   - osx
-language: node_js
-node_js:
-  - 10
-  - 12
-  - 13
+language: cpp
 
 install:
+  - rm -rf ~/.nvm
+  - wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.31.7/install.sh |
+    bash
+  - source ~/.nvm/nvm.sh
+  - nvm install 10
+  - node --version
   - npm install
-  - npm run build
+  - $(which node | sed 's@/bin/node$@/lib/node_modules/npm/bin/node-gyp-bin/node-gyp@') rebuild
+  - ./node_modules/.bin/jest || true
+  - nvm install 12
+  - ./node_modules/.bin/jest

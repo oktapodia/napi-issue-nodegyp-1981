@@ -8,4 +8,4 @@ node_js:
 
 install:
   - npm install
-  - npm run build
+  - V=1 npm run build

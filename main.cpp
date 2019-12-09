@@ -5,9 +5,10 @@ Napi::Object getScreenSize(const Napi::CallbackInfo& info) {
     Napi::Env env = info.Env();
     Napi::Object obj = Napi::Object::New(env);
     CGDirectDisplayID displayID = CGMainDisplayID();
-    obj.Set("width", CGDisplayPixelsWide(displayID));
-    obj.Set("height", CGDisplayPixelsHigh(displayID));
-    fflush(stdout);
+    obj.Set("width",
+            Napi::Number::New(info.Env(), CGDisplayPixelsWide(displayID)));
+    obj.Set("height",
+            Napi::Number::New(info.Env(), CGDisplayPixelsHigh(displayID)));
     return obj;
 }
 

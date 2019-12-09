@@ -1,3 +1,3 @@
-const getScreenSize = require('./build/Debug/testlib.node');
+const getScreenSize = require('./build/Release/testlib.node');
 
 console.log(getScreenSize());
